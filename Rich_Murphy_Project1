@@ -1,0 +1,9 @@
+.org 0x10000000
+
+li $t0, 0xf0200000 # load into register $t0 the address of the LEDs
+li $t1, 0x00000000 # initialize register $t1 with a value of 0
+
+my_loop: # establish a label name for the loop
+	sw $t1, 0($t0) # store the value of register $t1 into register $t0 (the LED)
+	addiu $t1,$t1,1 # add 1 to the current value of register $t1	
+j my_loop # jump back to top of loop
